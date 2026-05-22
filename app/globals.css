@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+  a {
+    @apply underline decoration-paper-rule decoration-2 underline-offset-4 hover:decoration-accent;
+  }
+  code {
+    @apply font-mono text-[0.92em];
+  }
+}
+
+@layer components {
+  .prose-lore {
+    @apply max-w-none leading-relaxed;
+  }
+  .prose-lore h1,
+  .prose-lore h2,
+  .prose-lore h3 {
+    @apply mt-8 mb-3 font-semibold tracking-tight;
+  }
+  .prose-lore h1 {
+    @apply text-2xl;
+  }
+  .prose-lore h2 {
+    @apply text-xl;
+  }
+  .prose-lore h3 {
+    @apply text-lg;
+  }
+  .prose-lore p {
+    @apply my-3;
+  }
+  .prose-lore ul {
+    @apply my-3 list-disc pl-6 space-y-1;
+  }
+  .prose-lore ol {
+    @apply my-3 list-decimal pl-6 space-y-1;
+  }
+  .prose-lore blockquote {
+    @apply my-4 border-l-2 border-paper-rule pl-4 italic text-ink-soft;
+  }
+  .prose-lore pre {
+    @apply my-4 overflow-x-auto rounded-md bg-ink p-4 text-paper text-sm;
+  }
+  .prose-lore pre code {
+    @apply text-paper bg-transparent p-0;
+  }
+  .prose-lore :not(pre) > code {
+    @apply rounded bg-paper-rule/60 px-1 py-0.5;
+  }
+  .prose-lore table {
+    @apply my-4 w-full border-collapse text-sm;
+  }
+  .prose-lore th,
+  .prose-lore td {
+    @apply border border-paper-rule px-3 py-1.5 text-left;
+  }
+  .prose-lore hr {
+    @apply my-8 border-paper-rule;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-paper-rule bg-paper-card px-2.5 py-0.5 text-xs text-ink-soft no-underline hover:border-ink hover:text-ink;
+  }
+
+  .kind-tag {
+    @apply inline-flex items-center rounded-sm px-1.5 py-0.5 text-[0.7rem] font-mono uppercase tracking-wider;
+  }
+  .kind-caveat {
+    @apply bg-accent-soft text-accent;
+  }
+  .kind-recipe {
+    @apply bg-emerald-100 text-emerald-800;
+  }
+  .kind-idiom {
+    @apply bg-sky-100 text-sky-800;
+  }
+  .kind-reference {
+    @apply bg-violet-100 text-violet-800;
+  }
+  .kind-note {
+    @apply bg-paper-rule text-ink-soft;
+  }
+}
