@@ -60,6 +60,9 @@ export default async function EntryPage({
           {entry.updated !== entry.created && (
             <span>updated {entry.updated}</span>
           )}
+          <span title="Approximate token count for context-budget planning">
+            ~{entry.tokens.toLocaleString()} tokens
+          </span>
           {entry.tags.map((tag) => (
             <Link
               key={tag}

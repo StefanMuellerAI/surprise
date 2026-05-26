@@ -47,6 +47,8 @@ function parseFile(filename: string): Entry {
         ? data.updated.toISOString().slice(0, 10)
         : created;
 
+  const body = content.trim();
+
   return {
     slug,
     title: String(data.title ?? slug),
@@ -57,7 +59,8 @@ function parseFile(filename: string): Entry {
     updated,
     related: Array.isArray(data.related) ? data.related.map(String) : [],
     source: typeof data.source === "string" ? data.source : undefined,
-    body: content.trim(),
+    tokens: Math.ceil(body.length / 4),
+    body,
   };
 }
 

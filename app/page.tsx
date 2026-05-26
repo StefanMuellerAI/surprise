@@ -65,6 +65,7 @@ export default function HomePage() {
               )}
               <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-muted">
                 <time dateTime={e.updated}>{e.updated}</time>
+                <span title="Approximate token count">~{e.tokens.toLocaleString()}t</span>
                 {e.tags.map((tag) => (
                   <Link
                     key={tag}

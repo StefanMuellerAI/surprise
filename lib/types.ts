@@ -10,6 +10,7 @@ export interface EntryMeta {
   updated: string; // ISO date
   related: string[]; // other slugs
   source?: string; // optional URL to authoritative source
+  tokens: number; // rough token estimate for context-budget planning
 }
 
 export interface Entry extends EntryMeta {
