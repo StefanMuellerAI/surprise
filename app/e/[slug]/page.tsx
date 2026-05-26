@@ -6,6 +6,7 @@ import {
   renderEntry,
 } from "@/lib/entries";
 import type { EntryKind } from "@/lib/types";
+import { CopyButton } from "./CopyButton";
 
 const KIND_CLASS: Record<EntryKind, string> = {
   caveat: "kind-tag kind-caveat",
@@ -44,12 +45,24 @@ export default async function EntryPage({
 
   const rendered = await renderEntry(entry);
 
+  const agentMarkdown = [
+    `# ${entry.title}`,
+    entry.summary ? `\n> ${entry.summary}` : "",
+    `\n**kind:** ${entry.kind}${entry.tags.length ? ` · **tags:** ${entry.tags.join(", ")}` : ""}`,
+    `\n${entry.body}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
   return (
     <article>
       <div className="mb-6">
-        <div className="mb-3 flex items-baseline gap-3">
-          <span className={KIND_CLASS[entry.kind]}>{entry.kind}</span>
-          <span className="font-mono text-xs text-ink-muted">{entry.slug}</span>
+        <div className="mb-3 flex items-baseline justify-between gap-3">
+          <div className="flex items-baseline gap-3">
+            <span className={KIND_CLASS[entry.kind]}>{entry.kind}</span>
+            <span className="font-mono text-xs text-ink-muted">{entry.slug}</span>
+          </div>
+          <CopyButton markdown={agentMarkdown} />
         </div>
         <h1 className="text-3xl font-semibold tracking-tight">{entry.title}</h1>
         {entry.summary && (
