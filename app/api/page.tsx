@@ -31,6 +31,11 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
     path: "/api/tags",
     desc: "List all tags with usage counts.",
   },
+  {
+    method: "GET",
+    path: "/api/digest",
+    desc: "All entries as a single plain-text Markdown document — ready to paste as an AI system prompt.",
+  },
 ];
 
 export default function ApiPage() {
