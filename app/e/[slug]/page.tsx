@@ -6,6 +6,7 @@ import {
   renderEntry,
 } from "@/lib/entries";
 import type { EntryKind } from "@/lib/types";
+import { ProseContent } from "@/app/components/ProseContent";
 
 const KIND_CLASS: Record<EntryKind, string> = {
   caveat: "kind-tag kind-caveat",
@@ -82,10 +83,7 @@ export default async function EntryPage({
         </div>
       </div>
 
-      <div
-        className="prose-lore"
-        dangerouslySetInnerHTML={{ __html: rendered.html }}
-      />
+      <ProseContent html={rendered.html} />
 
       {entry.related.length > 0 && (
         <section className="mt-12 border-t border-paper-rule pt-4">
