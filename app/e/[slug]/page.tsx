@@ -6,6 +6,7 @@ import {
   renderEntry,
 } from "@/lib/entries";
 import type { EntryKind } from "@/lib/types";
+import { CopyButton } from "./CopyButton";
 
 const KIND_CLASS: Record<EntryKind, string> = {
   caveat: "kind-tag kind-caveat",
@@ -79,6 +80,7 @@ export default async function EntryPage({
               source ↗
             </a>
           )}
+          <CopyButton entry={entry} />
         </div>
       </div>
 
