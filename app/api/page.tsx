@@ -31,6 +31,16 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
     path: "/api/tags",
     desc: "List all tags with usage counts.",
   },
+  {
+    method: "GET",
+    path: "/api/context",
+    desc: "All entries as a single plain-text context dump — ideal for loading into an LLM in one request.",
+  },
+  {
+    method: "GET",
+    path: "/api/context?format=json",
+    desc: "Same as above but as JSON, including raw Markdown bodies.",
+  },
 ];
 
 export default function ApiPage() {
