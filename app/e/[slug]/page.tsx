@@ -6,6 +6,7 @@ import {
   renderEntry,
 } from "@/lib/entries";
 import type { EntryKind } from "@/lib/types";
+import { CopyCurlButton } from "@/components/CopyCurlButton";
 
 const KIND_CLASS: Record<EntryKind, string> = {
   caveat: "kind-tag kind-caveat",
@@ -108,11 +109,10 @@ export default async function EntryPage({
         </section>
       )}
 
-      <section className="mt-12 text-xs text-ink-muted">
+      <section className="mt-12 flex items-center gap-3 text-xs text-ink-muted">
         Fetch as JSON:{" "}
-        <code>
-          GET /api/entries/{entry.slug}
-        </code>
+        <code>GET /api/entries/{entry.slug}</code>
+        <CopyCurlButton apiPath={`/api/entries/${entry.slug}`} />
       </section>
     </article>
   );
