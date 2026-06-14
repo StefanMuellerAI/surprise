@@ -10,8 +10,20 @@ const KIND_CLASS: Record<EntryKind, string> = {
   note: "kind-tag kind-note",
 };
 
-export default function HomePage() {
-  const entries = getAllEntries();
+const KINDS: EntryKind[] = ["caveat", "recipe", "idiom", "reference", "note"];
+
+export default async function HomePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ kind?: string }>;
+}) {
+  const { kind } = await searchParams;
+  const activeKind = KINDS.find((k) => k === kind) ?? null;
+
+  const allEntries = getAllEntries();
+  const entries = activeKind
+    ? allEntries.filter((e) => e.kind === activeKind)
+    : allEntries;
   const tags = getAllTags().slice(0, 16);
 
   return (
@@ -45,14 +57,49 @@ export default function HomePage() {
       )}
 
       <section>
-        <h2 className="mb-3 text-xs font-mono uppercase tracking-wider text-ink-muted">
-          entries · {entries.length}
-        </h2>
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <h2 className="text-xs font-mono uppercase tracking-wider text-ink-muted">
+            entries · {entries.length}
+          </h2>
+          <div className="flex flex-wrap items-center gap-1.5">
+            {activeKind && (
+              <Link
+                href="/"
+                className="no-underline text-xs text-ink-muted hover:text-ink"
+              >
+                all ×
+              </Link>
+            )}
+            {KINDS.map((k) => (
+              <Link
+                key={k}
+                href={activeKind === k ? "/" : `/?kind=${k}`}
+                className={[
+                  KIND_CLASS[k],
+                  "no-underline transition-opacity",
+                  activeKind === k
+                    ? "ring-1 ring-current"
+                    : activeKind
+                      ? "opacity-40 hover:opacity-80"
+                      : "opacity-60 hover:opacity-100",
+                ].join(" ")}
+              >
+                {k}
+              </Link>
+            ))}
+          </div>
+        </div>
+
         <ul className="divide-y divide-paper-rule">
           {entries.map((e) => (
             <li key={e.slug} className="py-4">
               <div className="flex items-baseline gap-3">
-                <span className={KIND_CLASS[e.kind]}>{e.kind}</span>
+                <Link
+                  href={activeKind === e.kind ? "/" : `/?kind=${e.kind}`}
+                  className={`${KIND_CLASS[e.kind]} no-underline`}
+                >
+                  {e.kind}
+                </Link>
                 <Link
                   href={`/e/${e.slug}`}
                   className="no-underline text-lg font-medium hover:underline"
@@ -78,8 +125,12 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
+
         {entries.length === 0 && (
-          <p className="text-ink-muted">No entries yet.</p>
+          <p className="text-ink-muted">
+            No {activeKind} entries yet.{" "}
+            <Link href="/">Show all entries</Link>.
+          </p>
         )}
       </section>
     </div>
