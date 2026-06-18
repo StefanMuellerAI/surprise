@@ -53,6 +53,18 @@ export default function AboutPage() {
         before starting.
       </p>
 
+      <h2>For agents</h2>
+      <p>
+        Load{" "}
+        <a href="/llms.txt">
+          <code>/llms.txt</code>
+        </a>{" "}
+        for a plain-text overview of every entry — title, summary, tags, and
+        API links — formatted to fit cleanly into an LLM context window. For
+        the full JSON API see the{" "}
+        <Link href="/api">API reference</Link>.
+      </p>
+
       <h2>Contributing</h2>
       <p>
         Entries should be terse, opinionated, and accurate. Cite the

@@ -3,6 +3,11 @@ export const metadata = { title: "API" };
 const ROUTES: { method: string; path: string; desc: string }[] = [
   {
     method: "GET",
+    path: "/llms.txt",
+    desc: "Plain-text index of all entries, optimised for loading into an LLM context window.",
+  },
+  {
+    method: "GET",
     path: "/api/entries",
     desc: "List all entries (metadata only).",
   },
