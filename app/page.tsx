@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import Link from "next/link";
-import { getAllEntries, getAllTags } from "@/lib/entries";
+import { getAllEntries, getAllTags, searchEntries } from "@/lib/entries";
+import SearchInput from "@/app/components/SearchInput";
 import type { EntryKind } from "@/lib/types";
 
 const KIND_CLASS: Record<EntryKind, string> = {
@@ -10,8 +12,14 @@ const KIND_CLASS: Record<EntryKind, string> = {
   note: "kind-tag kind-note",
 };
 
-export default function HomePage() {
-  const entries = getAllEntries();
+export default async function HomePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string }>;
+}) {
+  const { q } = await searchParams;
+  const query = q?.trim() ?? "";
+  const entries = query ? searchEntries(query) : getAllEntries();
   const tags = getAllTags().slice(0, 16);
 
   return (
@@ -28,7 +36,13 @@ export default function HomePage() {
         </p>
       </section>
 
-      {tags.length > 0 && (
+      <section className="mb-8">
+        <Suspense>
+          <SearchInput />
+        </Suspense>
+      </section>
+
+      {!query && tags.length > 0 && (
         <section className="mb-8">
           <h2 className="mb-2 text-xs font-mono uppercase tracking-wider text-ink-muted">
             tags
@@ -46,7 +60,9 @@ export default function HomePage() {
 
       <section>
         <h2 className="mb-3 text-xs font-mono uppercase tracking-wider text-ink-muted">
-          entries · {entries.length}
+          {query
+            ? `results for "${query}" · ${entries.length}`
+            : `entries · ${entries.length}`}
         </h2>
         <ul className="divide-y divide-paper-rule">
           {entries.map((e) => (
@@ -78,7 +94,12 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
-        {entries.length === 0 && (
+        {entries.length === 0 && query && (
+          <p className="text-ink-muted">
+            No entries match <em>{query}</em>.
+          </p>
+        )}
+        {entries.length === 0 && !query && (
           <p className="text-ink-muted">No entries yet.</p>
         )}
       </section>
