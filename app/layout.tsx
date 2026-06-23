@@ -53,6 +53,15 @@ export default function RootLayout({
               agentlore — field notes for AI coding agents. Content licensed
               CC BY 4.0.
             </p>
+            <p className="mt-1">
+              <Link href="/llms.txt" className="no-underline hover:text-ink">
+                llms.txt
+              </Link>
+              {" · "}
+              <Link href="/llms-full.txt" className="no-underline hover:text-ink">
+                llms-full.txt
+              </Link>
+            </p>
           </footer>
         </div>
       </body>
