@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllEntries, getAllTags } from "@/lib/entries";
 import type { EntryKind } from "@/lib/types";
+import { CopyContextButton } from "./components/CopyContextButton";
 
 const KIND_CLASS: Record<EntryKind, string> = {
   caveat: "kind-tag kind-caveat",
@@ -45,9 +46,12 @@ export default function HomePage() {
       )}
 
       <section>
-        <h2 className="mb-3 text-xs font-mono uppercase tracking-wider text-ink-muted">
-          entries · {entries.length}
-        </h2>
+        <div className="mb-3 flex items-center justify-between">
+          <h2 className="text-xs font-mono uppercase tracking-wider text-ink-muted">
+            entries · {entries.length}
+          </h2>
+          <CopyContextButton />
+        </div>
         <ul className="divide-y divide-paper-rule">
           {entries.map((e) => (
             <li key={e.slug} className="py-4">
