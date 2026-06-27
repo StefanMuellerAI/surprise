@@ -31,6 +31,21 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
     path: "/api/tags",
     desc: "List all tags with usage counts.",
   },
+  {
+    method: "GET",
+    path: "/api/context",
+    desc: "All entries as a plain-text block — paste directly into an agent system prompt.",
+  },
+  {
+    method: "GET",
+    path: "/api/context?tags=nextjs,react",
+    desc: "Filter context by one or more tags (comma-separated, OR logic).",
+  },
+  {
+    method: "GET",
+    path: "/api/context?q=...",
+    desc: "Full-text search — returns matching entries as plain text.",
+  },
 ];
 
 export default function ApiPage() {
@@ -65,7 +80,7 @@ export default function ApiPage() {
       </div>
 
       <h2 className="mt-10 text-xl font-semibold tracking-tight">
-        Example response
+        Example: JSON response
       </h2>
       <pre className="mt-3 overflow-x-auto rounded-md bg-ink p-4 text-sm text-paper">
         <code>{`GET /api/entries
@@ -84,6 +99,27 @@ export default function ApiPage() {
     }
   ]
 }`}</code>
+      </pre>
+
+      <h2 className="mt-10 text-xl font-semibold tracking-tight">
+        Example: context response (plain text)
+      </h2>
+      <p className="mt-2 max-w-prose text-ink-soft text-sm">
+        <code>/api/context</code> returns <code>text/plain</code> — inject it
+        directly into an agent system prompt with a single{" "}
+        <code>fetch(…).then(r =&gt; r.text())</code>.
+      </p>
+      <pre className="mt-3 overflow-x-auto rounded-md bg-ink p-4 text-sm text-paper">
+        <code>{`GET /api/context?tags=nextjs
+
+# agentlore context — 1 entry matched tags=nextjs
+
+---
+## Next.js 15 async params [caveat]
+> In Next.js 15, route params and searchParams are Promises.
+tags: nextjs, react, async · slug: nextjs-15-async-params · updated: 2026-05-22
+
+In Next.js 15, \`params\` and \`searchParams\` props in pages …`}</code>
       </pre>
     </article>
   );
