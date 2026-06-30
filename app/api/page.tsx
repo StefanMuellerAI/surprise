@@ -31,6 +31,11 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
     path: "/api/tags",
     desc: "List all tags with usage counts.",
   },
+  {
+    method: "GET",
+    path: "/api/context",
+    desc: "All entries as a single plain-text bundle — paste directly into a system prompt. Supports ?tag= and ?kind= filters.",
+  },
 ];
 
 export default function ApiPage() {

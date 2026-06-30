@@ -108,6 +108,24 @@ export async function renderEntry(entry: Entry): Promise<EntryRendered> {
   return { ...toMeta(entry), html: String(processed) };
 }
 
+export function formatContextBundle(entries: Entry[], date: string): string {
+  const lines: string[] = [
+    "# agentlore context bundle",
+    `entries: ${entries.length} | generated: ${date}`,
+    "",
+  ];
+  for (const e of entries) {
+    lines.push("---", "");
+    lines.push(`## [${e.kind}] ${e.title}`);
+    lines.push(`slug: ${e.slug}`);
+    if (e.tags.length > 0) lines.push(`tags: ${e.tags.join(", ")}`);
+    if (e.summary) lines.push(`summary: ${e.summary}`);
+    if (e.source) lines.push(`source: ${e.source}`);
+    lines.push("", e.body, "");
+  }
+  return lines.join("\n");
+}
+
 export function searchEntries(query: string, limit = 25): Entry[] {
   const q = query.trim().toLowerCase();
   if (!q) return [];

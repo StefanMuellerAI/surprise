@@ -108,11 +108,15 @@ export default async function EntryPage({
         </section>
       )}
 
-      <section className="mt-12 text-xs text-ink-muted">
-        Fetch as JSON:{" "}
-        <code>
-          GET /api/entries/{entry.slug}
-        </code>
+      <section className="mt-12 text-xs text-ink-muted space-y-1">
+        <div>
+          Fetch as JSON:{" "}
+          <code>GET /api/entries/{entry.slug}</code>
+        </div>
+        <div>
+          Full context bundle:{" "}
+          <code>GET /api/context</code>
+        </div>
       </section>
     </article>
   );
