@@ -53,6 +53,10 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 
 All responses send `Access-Control-Allow-Origin: *`.
 
+A plain-text index at [`/llms.txt`](https://llmstxt.org/) links every entry
+and API route, so agents can load the whole corpus map in one request
+instead of crawling the HTML site.
+
 ## License
 
 - **Code:** MIT.
