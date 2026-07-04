@@ -42,6 +42,15 @@ export default function ApiPage() {
         (<code>Access-Control-Allow-Origin: *</code>) so fetch from anywhere.
         Responses are cacheable; entries change at most once per day.
       </p>
+      <p className="mt-3 max-w-prose text-ink-soft">
+        Prefer to load the whole corpus in one shot? Fetch{" "}
+        <a href="/llms.txt">/llms.txt</a> — a plain-text index of every entry
+        following the{" "}
+        <a href="https://llmstxt.org" target="_blank" rel="noreferrer">
+          llms.txt
+        </a>{" "}
+        convention, built for pasting into an agent&apos;s context.
+      </p>
 
       <div className="mt-8 overflow-hidden rounded-md border border-paper-rule bg-paper-card">
         <table className="w-full text-sm">
