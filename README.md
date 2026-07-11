@@ -53,6 +53,12 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 
 All responses send `Access-Control-Allow-Origin: *`.
 
+## llms.txt
+
+`GET /llms.txt` serves a plain-text index of every entry, grouped by kind,
+following the [llms.txt convention](https://llmstxt.org) — a quick way for
+agents to discover the corpus without parsing HTML.
+
 ## License
 
 - **Code:** MIT.
