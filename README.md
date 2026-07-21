@@ -50,6 +50,7 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 | GET    | `/api/entries/{slug}`      | single entry, with rendered HTML             |
 | GET    | `/api/search?q=...`        | token-AND substring search                   |
 | GET    | `/api/tags`                | tags with counts                             |
+| GET    | `/api/random`              | one random entry, rendered; `?tag=`/`?kind=` |
 
 All responses send `Access-Control-Allow-Origin: *`.
 

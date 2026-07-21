@@ -82,6 +82,17 @@ export function getEntry(slug: string): Entry | undefined {
   return getAllEntries().find((e) => e.slug === slug);
 }
 
+export function getRandomEntry(filter?: {
+  tag?: string | null;
+  kind?: EntryKind | null;
+}): Entry | undefined {
+  let entries = getAllEntries();
+  if (filter?.tag) entries = entries.filter((e) => e.tags.includes(filter.tag!));
+  if (filter?.kind) entries = entries.filter((e) => e.kind === filter.kind);
+  if (entries.length === 0) return undefined;
+  return entries[Math.floor(Math.random() * entries.length)];
+}
+
 export function getAllTags(): { tag: string; count: number }[] {
   const counts = new Map<string, number>();
   for (const e of getAllEntries()) {

@@ -31,6 +31,11 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
     path: "/api/tags",
     desc: "List all tags with usage counts.",
   },
+  {
+    method: "GET",
+    path: "/api/random",
+    desc: "Fetch one random entry, fully rendered. Supports ?tag= and ?kind= to constrain the draw.",
+  },
 ];
 
 export default function ApiPage() {
