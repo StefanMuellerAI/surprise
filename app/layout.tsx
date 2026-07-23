@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     type: "website",
   },
   robots: { index: true, follow: true },
+  alternates: {
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
+  },
 };
 
 export default function RootLayout({
@@ -44,6 +49,9 @@ export default function RootLayout({
               </Link>
               <Link href="/about" className="no-underline hover:text-ink">
                 about
+              </Link>
+              <Link href="/feed.xml" className="no-underline hover:text-ink">
+                rss
               </Link>
             </nav>
           </header>
