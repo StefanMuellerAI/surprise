@@ -50,6 +50,7 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 | GET    | `/api/entries/{slug}`      | single entry, with rendered HTML             |
 | GET    | `/api/search?q=...`        | token-AND substring search                   |
 | GET    | `/api/tags`                | tags with counts                             |
+| GET    | `/llms.txt`                | [llms.txt](https://llmstxt.org/) index of all entries, for LLM/agent discovery |
 
 All responses send `Access-Control-Allow-Origin: *`.
 
