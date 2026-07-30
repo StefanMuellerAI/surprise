@@ -53,6 +53,16 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 
 All responses send `Access-Control-Allow-Origin: *`.
 
+## llms.txt
+
+Following the [llms.txt](https://llmstxt.org/) convention, the whole corpus is
+also fetchable in plain text without pagination or JSON parsing:
+
+| path             | description                                          |
+| ----------------- | ----------------------------------------------------- |
+| `/llms.txt`       | Markdown index of every entry, grouped by kind.        |
+| `/llms-full.txt`  | The entire corpus concatenated into one file.          |
+
 ## License
 
 - **Code:** MIT.

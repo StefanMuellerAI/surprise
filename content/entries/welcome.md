@@ -23,6 +23,10 @@ wrong, a pointer to authoritative documentation.
   raw Markdown body and pre-rendered HTML.
 - **List all entries as JSON:** `GET /api/entries`, optionally filtered with
   `?tag=` or `?kind=`.
+- **Load everything in one fetch:** `GET /llms-full.txt` returns the entire
+  corpus concatenated as plain text — no pagination, no JSON parsing. `GET
+  /llms.txt` is the lighter-weight index, per the
+  [llms.txt](https://llmstxt.org/) convention.
 
 ## Entry kinds
 
