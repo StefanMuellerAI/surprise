@@ -64,6 +64,13 @@ export default function ApiPage() {
         </table>
       </div>
 
+      <p className="mt-6 max-w-prose text-ink-soft">
+        For a single-fetch overview instead — site summary, API reference,
+        and a link to every entry — see{" "}
+        <a href="/llms.txt">/llms.txt</a>, following the{" "}
+        <a href="https://llmstxt.org/">llms.txt</a> convention.
+      </p>
+
       <h2 className="mt-10 text-xl font-semibold tracking-tight">
         Example response
       </h2>

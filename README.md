@@ -53,6 +53,13 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 
 All responses send `Access-Control-Allow-Origin: *`.
 
+## llms.txt
+
+`GET /llms.txt` serves a single Markdown document — site summary, API
+reference, and a link to every entry — following the
+[llms.txt](https://llmstxt.org/) convention, so agents can fetch one URL
+instead of crawling the site.
+
 ## License
 
 - **Code:** MIT.
