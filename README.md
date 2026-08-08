@@ -53,6 +53,13 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 
 All responses send `Access-Control-Allow-Origin: *`.
 
+### For LLM agents
+
+| method | path              | description                                                |
+| ------ | ----------------- | ---------------------------------------------------------- |
+| GET    | `/llms.txt`        | Indexed summary of every entry ([llms.txt](https://llmstxt.org/) convention) |
+| GET    | `/llms-full.txt`   | The full corpus — every entry's raw Markdown — in one request |
+
 ## License
 
 - **Code:** MIT.

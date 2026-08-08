@@ -31,6 +31,16 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
     path: "/api/tags",
     desc: "List all tags with usage counts.",
   },
+  {
+    method: "GET",
+    path: "/llms.txt",
+    desc: "Indexed summary of every entry, per the llms.txt convention.",
+  },
+  {
+    method: "GET",
+    path: "/llms-full.txt",
+    desc: "The full corpus — every entry's raw Markdown — in one file.",
+  },
 ];
 
 export default function ApiPage() {
@@ -41,6 +51,12 @@ export default function ApiPage() {
         Everything on this site is also available as JSON. CORS is open
         (<code>Access-Control-Allow-Origin: *</code>) so fetch from anywhere.
         Responses are cacheable; entries change at most once per day.
+      </p>
+      <p className="mt-3 max-w-prose text-ink-soft">
+        Loading context into an agent instead of scripting against the API?
+        Fetch <code>/llms.txt</code> for an indexed summary of every entry, or{" "}
+        <code>/llms-full.txt</code> to pull the entire corpus — every entry's
+        raw Markdown — in a single request.
       </p>
 
       <div className="mt-8 overflow-hidden rounded-md border border-paper-rule bg-paper-card">
