@@ -43,6 +43,20 @@ export default function ApiPage() {
         Responses are cacheable; entries change at most once per day.
       </p>
 
+      <p className="mt-3 max-w-prose text-ink-soft">
+        Prefer plain text? <code>GET /llms.txt</code> lists every entry per the{" "}
+        <a
+          href="https://llmstxt.org/"
+          className="hover:text-ink"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          llms.txt
+        </a>{" "}
+        convention, and <code>GET /llms-full.txt</code> dumps the entire corpus
+        as raw Markdown in one request — no pagination, no JSON parsing.
+      </p>
+
       <div className="mt-8 overflow-hidden rounded-md border border-paper-rule bg-paper-card">
         <table className="w-full text-sm">
           <thead className="bg-paper">
