@@ -53,6 +53,11 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 
 All responses send `Access-Control-Allow-Origin: *`.
 
+## For AI agents
+
+- `GET /llms.txt` — plain-text index of every entry, grouped by kind, per the [llms.txt](https://llmstxt.org/) convention.
+- `GET /llms-full.txt` — every entry's full Markdown body concatenated into one file, for loading the whole corpus in one request.
+
 ## License
 
 - **Code:** MIT.
