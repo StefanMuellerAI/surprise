@@ -42,6 +42,17 @@ export default function ApiPage() {
         (<code>Access-Control-Allow-Origin: *</code>) so fetch from anywhere.
         Responses are cacheable; entries change at most once per day.
       </p>
+      <p className="mt-3 max-w-prose text-ink-soft">
+        Prefer plain text? <code>/llms.txt</code> lists every entry as a
+        single fetch, formatted per the{" "}
+        <a
+          href="https://llmstxt.org/"
+          className="underline hover:text-ink"
+        >
+          llms.txt
+        </a>{" "}
+        convention.
+      </p>
 
       <div className="mt-8 overflow-hidden rounded-md border border-paper-rule bg-paper-card">
         <table className="w-full text-sm">
