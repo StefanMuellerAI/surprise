@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     type: "website",
   },
   robots: { index: true, follow: true },
+  alternates: {
+    types: { "text/plain": "/llms.txt" },
+  },
 };
 
 export default function RootLayout({
