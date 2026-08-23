@@ -45,6 +45,13 @@ export default function RootLayout({
               <Link href="/about" className="no-underline hover:text-ink">
                 about
               </Link>
+              <a
+                href="/llms.txt"
+                className="no-underline hover:text-ink"
+                title="Plain-text index for AI agents"
+              >
+                llms.txt
+              </a>
             </nav>
           </header>
           <main className="flex-1">{children}</main>
