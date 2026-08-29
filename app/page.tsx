@@ -23,8 +23,9 @@ export default function HomePage() {
         <p className="mt-3 max-w-prose text-ink-soft">
           A small, growing knowledge base of <em>caveats</em>, <em>recipes</em>,
           and <em>idioms</em> — the kind of pre-flight context an agent benefits
-          from loading before a task. Browse below, or fetch via the{" "}
-          <Link href="/api">JSON API</Link>.
+          from loading before a task. Browse below, fetch via the{" "}
+          <Link href="/api">JSON API</Link>, or load the whole corpus in one
+          request at <Link href="/llms.txt">/llms.txt</Link>.
         </p>
       </section>
 
