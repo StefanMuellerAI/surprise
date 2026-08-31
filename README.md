@@ -53,6 +53,10 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 
 All responses send `Access-Control-Allow-Origin: *`.
 
+There's also a plaintext [`/llms.txt`](https://agentlore.dev/llms.txt) index of
+every entry, grouped by kind, for agents that discover context via the
+[llms.txt](https://llmstxt.org/) convention.
+
 ## License
 
 - **Code:** MIT.
