@@ -109,10 +109,10 @@ export default async function EntryPage({
       )}
 
       <section className="mt-12 text-xs text-ink-muted">
-        Fetch as JSON:{" "}
-        <code>
-          GET /api/entries/{entry.slug}
-        </code>
+        Fetch as JSON: <code>GET /api/entries/{entry.slug}</code>
+        {" · "}
+        Fetch as markdown:{" "}
+        <code>GET /api/entries/{entry.slug}/raw</code>
       </section>
     </article>
   );

@@ -48,10 +48,18 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 | ------ | -------------------------- | -------------------------------------------- |
 | GET    | `/api/entries`             | list metadata, supports `?tag=` and `?kind=` |
 | GET    | `/api/entries/{slug}`      | single entry, with rendered HTML             |
+| GET    | `/api/entries/{slug}/raw`  | single entry, as raw markdown + frontmatter  |
 | GET    | `/api/search?q=...`        | token-AND substring search                   |
 | GET    | `/api/tags`                | tags with counts                             |
+| GET    | `/llms.txt`                | plain-text index of all entries, for agents  |
 
 All responses send `Access-Control-Allow-Origin: *`.
+
+## For AI agents
+
+`/llms.txt` follows the [llms.txt](https://llms.txt/) convention: a plain-text
+index linking straight to each entry's raw markdown, so an agent can discover
+and load the whole corpus without parsing HTML or JSON.
 
 ## License
 
