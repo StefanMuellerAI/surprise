@@ -53,6 +53,13 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 
 All responses send `Access-Control-Allow-Origin: *`.
 
+### `llms.txt`
+
+`GET /llms.txt` serves a plain-text index of every entry, grouped by kind
+and linked, following the [llms.txt convention](https://llmstxt.org/) — a
+single cheap fetch an agent can use to decide what to load next, without
+parsing JSON.
+
 ## License
 
 - **Code:** MIT.
