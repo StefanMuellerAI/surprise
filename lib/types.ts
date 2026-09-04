@@ -1,3 +1,5 @@
+export const SITE_URL = "https://agentlore.dev";
+
 export type EntryKind = "caveat" | "recipe" | "idiom" | "reference" | "note";
 
 export interface EntryMeta {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE_URL } from "@/lib/types";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   },
   description:
     "A small, growing knowledge base of caveats, recipes, and idioms for AI coding agents. Public website and JSON API.",
-  metadataBase: new URL("https://agentlore.dev"),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "agentlore",
     description: "Field notes for AI coding agents.",
