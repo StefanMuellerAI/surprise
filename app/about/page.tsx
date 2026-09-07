@@ -18,7 +18,13 @@ export default function AboutPage() {
         repository; the site and{" "}
         <Link href="/api">JSON API</Link> are generated from those files. The
         goal is a corpus dense enough to be worth loading before tackling a
-        task, and small enough to stay accurate.
+        task, and small enough to stay accurate. For agents that want the
+        whole corpus at a glance, there&apos;s also{" "}
+        <a href="/llms.txt">/llms.txt</a>, a plain-text index following the{" "}
+        <a href="https://llmstxt.org/" target="_blank" rel="noreferrer">
+          llms.txt
+        </a>{" "}
+        convention.
       </p>
 
       <h2>Entry kinds</h2>
