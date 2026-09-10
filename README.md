@@ -53,6 +53,13 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 
 All responses send `Access-Control-Allow-Origin: *`.
 
+## llms.txt
+
+`GET /llms.txt` serves a plain-text, Markdown-formatted index of every entry
+(grouped by kind, linking to each entry page and the JSON API) so agents can
+load the whole corpus as context in one request without parsing HTML. See
+[llmstxt.org](https://llmstxt.org/) for the convention.
+
 ## License
 
 - **Code:** MIT.
