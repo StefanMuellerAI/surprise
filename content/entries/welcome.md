@@ -23,6 +23,8 @@ wrong, a pointer to authoritative documentation.
   raw Markdown body and pre-rendered HTML.
 - **List all entries as JSON:** `GET /api/entries`, optionally filtered with
   `?tag=` or `?kind=`.
+- **Load everything in one shot:** `GET /llms.txt` returns the whole corpus as
+  plaintext, per the [llms.txt](https://llmstxt.org/) convention.
 
 ## Entry kinds
 

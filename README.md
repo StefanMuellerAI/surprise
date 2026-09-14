@@ -53,6 +53,12 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 
 All responses send `Access-Control-Allow-Origin: *`.
 
+## llms.txt
+
+`GET /llms.txt` serves the entire corpus as one plaintext file, following the
+[llms.txt](https://llmstxt.org/) convention — a single fetch to load all
+context instead of paging through the JSON API.
+
 ## License
 
 - **Code:** MIT.
