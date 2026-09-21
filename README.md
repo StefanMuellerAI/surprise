@@ -53,6 +53,9 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 
 All responses send `Access-Control-Allow-Origin: *`.
 
+Also served: [`/llms.txt`](https://llmstxt.org/), a plain-text index of every
+entry and endpoint, kept in sync with the content directory automatically.
+
 ## License
 
 - **Code:** MIT.
