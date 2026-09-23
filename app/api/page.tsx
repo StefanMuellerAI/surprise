@@ -31,6 +31,16 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
     path: "/api/tags",
     desc: "List all tags with usage counts.",
   },
+  {
+    method: "GET",
+    path: "/llms.txt",
+    desc: "Plain-text index of all entries, llms.txt convention.",
+  },
+  {
+    method: "GET",
+    path: "/llms-full.txt",
+    desc: "Entire corpus as one Markdown document, no pagination.",
+  },
 ];
 
 export default function ApiPage() {
