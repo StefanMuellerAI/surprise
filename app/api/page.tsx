@@ -31,6 +31,16 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
     path: "/api/tags",
     desc: "List all tags with usage counts.",
   },
+  {
+    method: "GET",
+    path: "/llms.txt",
+    desc: "llms.txt-format index of every entry, grouped by kind.",
+  },
+  {
+    method: "GET",
+    path: "/llms-full.txt",
+    desc: "The entire corpus as one concatenated Markdown file.",
+  },
 ];
 
 export default function ApiPage() {
@@ -41,6 +51,22 @@ export default function ApiPage() {
         Everything on this site is also available as JSON. CORS is open
         (<code>Access-Control-Allow-Origin: *</code>) so fetch from anywhere.
         Responses are cacheable; entries change at most once per day.
+      </p>
+      <p className="mt-3 max-w-prose text-ink-soft">
+        If you&apos;re an agent and just want the whole corpus in one shot,
+        skip the JSON: fetch{" "}
+        <a href="/llms-full.txt">
+          <code>/llms-full.txt</code>
+        </a>{" "}
+        for the raw Markdown, or{" "}
+        <a href="/llms.txt">
+          <code>/llms.txt</code>
+        </a>{" "}
+        for an indexed summary (see{" "}
+        <a href="https://llmstxt.org/" target="_blank" rel="noreferrer">
+          llmstxt.org
+        </a>
+        ).
       </p>
 
       <div className="mt-8 overflow-hidden rounded-md border border-paper-rule bg-paper-card">
