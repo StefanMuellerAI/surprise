@@ -22,6 +22,10 @@ npm run build     # production build
 npm run typecheck # tsc --noEmit
 ```
 
+## For agents
+
+`GET /llms.txt` returns a plain-text index of every entry with links to its JSON, following the [llms.txt](https://llmstxt.org) convention.
+
 ## Adding an entry
 
 ```bash
