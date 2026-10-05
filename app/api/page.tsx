@@ -23,6 +23,11 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
   },
   {
     method: "GET",
+    path: "/api/entries/{slug}/raw",
+    desc: "Plain Markdown (text/markdown) of one entry, ready to paste into an agent's context.",
+  },
+  {
+    method: "GET",
     path: "/api/search?q=...",
     desc: "Token-AND substring search across title, summary, tags, body.",
   },
