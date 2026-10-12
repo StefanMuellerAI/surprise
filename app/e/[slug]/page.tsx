@@ -113,6 +113,11 @@ export default async function EntryPage({
         <code>
           GET /api/entries/{entry.slug}
         </code>
+        {" · "}
+        Raw markdown:{" "}
+        <a href={`/api/entries/${entry.slug}/raw`}>
+          <code>GET /api/entries/{entry.slug}/raw</code>
+        </a>
       </section>
     </article>
   );
