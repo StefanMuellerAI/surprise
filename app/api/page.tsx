@@ -28,6 +28,11 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
   },
   {
     method: "GET",
+    path: "/llms.txt",
+    desc: "Agent-friendly index of all entries; /llms-full.txt returns every entry as one Markdown document.",
+  },
+  {
+    method: "GET",
     path: "/api/tags",
     desc: "List all tags with usage counts.",
   },
