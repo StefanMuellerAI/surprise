@@ -22,6 +22,8 @@ npm run build     # production build
 npm run typecheck # tsc --noEmit
 ```
 
+`/llms.txt` serves an index of all entries for LLM crawlers and agents.
+
 ## Adding an entry
 
 ```bash
