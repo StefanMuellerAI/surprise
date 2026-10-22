@@ -138,3 +138,18 @@ export function searchEntries(query: string, limit = 25): Entry[] {
     .slice(0, limit);
   return scored.map((r) => r.entry);
 }
+
+/** Explicit `related` slugs first, then entries sharing the most tags. */
+export function getRelatedEntries(entry: Entry, limit = 4): Entry[] {
+  const explicit = entry.related
+    .map((s) => getEntry(s))
+    .filter((e): e is Entry => Boolean(e));
+  const seen = new Set([entry.slug, ...explicit.map((e) => e.slug)]);
+  const tags = new Set(entry.tags);
+  const byTags = getAllEntries()
+    .filter((e) => !seen.has(e.slug))
+    .map((e) => ({ e, shared: e.tags.filter((t) => tags.has(t)).length }))
+    .filter((r) => r.shared > 0)
+    .sort((a, b) => b.shared - a.shared);
+  return [...explicit, ...byTags.map((r) => r.e)].slice(0, limit);
+}

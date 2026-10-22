@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import {
   getAllEntries,
   getEntry,
+  getRelatedEntries,
   renderEntry,
 } from "@/lib/entries";
 import type { EntryKind } from "@/lib/types";
@@ -43,6 +44,7 @@ export default async function EntryPage({
   if (!entry) notFound();
 
   const rendered = await renderEntry(entry);
+  const related = getRelatedEntries(entry);
 
   return (
     <article>
@@ -87,23 +89,19 @@ export default async function EntryPage({
         dangerouslySetInnerHTML={{ __html: rendered.html }}
       />
 
-      {entry.related.length > 0 && (
+      {related.length > 0 && (
         <section className="mt-12 border-t border-paper-rule pt-4">
           <h2 className="mb-2 text-xs font-mono uppercase tracking-wider text-ink-muted">
             related
           </h2>
           <ul className="space-y-1">
-            {entry.related.map((s) => {
-              const r = getEntry(s);
-              if (!r) return null;
-              return (
-                <li key={s}>
-                  <Link href={`/e/${s}`} className="text-sm">
-                    {r.title}
-                  </Link>
-                </li>
-              );
-            })}
+            {related.map((r) => (
+              <li key={r.slug}>
+                <Link href={`/e/${r.slug}`} className="text-sm">
+                  {r.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </section>
       )}
