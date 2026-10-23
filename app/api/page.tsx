@@ -28,6 +28,11 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
   },
   {
     method: "GET",
+    path: "/llms.txt",
+    desc: "Plain-text index of all entries, for agents to discover what to load.",
+  },
+  {
+    method: "GET",
     path: "/api/tags",
     desc: "List all tags with usage counts.",
   },
