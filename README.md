@@ -22,6 +22,10 @@ npm run build     # production build
 npm run typecheck # tsc --noEmit
 ```
 
+## For agents
+
+`/llms.txt` serves a compact plain-text index of all entries.
+
 ## Adding an entry
 
 ```bash
