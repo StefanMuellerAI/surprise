@@ -12,6 +12,7 @@ loading before tackling a task. The corpus grows one entry at a time.
 - [Tailwind CSS](https://tailwindcss.com/)
 - Markdown content in `content/entries/`, parsed with [`gray-matter`](https://github.com/jonschlinkert/gray-matter) and rendered with [`remark`](https://github.com/remarkjs/remark) + `remark-gfm`
 - Deploys to any Node host; suited to Vercel.
+- `/llms.txt` lists every entry for agent discovery.
 
 ## Local development
 
