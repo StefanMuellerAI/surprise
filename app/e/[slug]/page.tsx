@@ -112,6 +112,10 @@ export default async function EntryPage({
         Fetch as JSON:{" "}
         <code>
           GET /api/entries/{entry.slug}
+        </code>{" "}
+        or as plain markdown:{" "}
+        <code>
+          GET /api/entries/{entry.slug}/md
         </code>
       </section>
     </article>
