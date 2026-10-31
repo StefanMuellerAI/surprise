@@ -94,6 +94,30 @@ export function getAllTags(): { tag: string; count: number }[] {
     .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag));
 }
 
+/**
+ * Related entries: explicit `related` slugs first, then entries sharing the
+ * most tags (ties broken by recency), so every entry gets useful next-reads.
+ */
+export function getRelatedEntries(entry: Entry, limit = 4): Entry[] {
+  const result: Entry[] = [];
+  const seen = new Set<string>([entry.slug]);
+  for (const slug of entry.related) {
+    const r = getEntry(slug);
+    if (r && !seen.has(r.slug)) {
+      seen.add(r.slug);
+      result.push(r);
+    }
+  }
+  const tags = new Set(entry.tags);
+  const byOverlap = getAllEntries()
+    .filter((e) => !seen.has(e.slug))
+    .map((e) => ({ e, n: e.tags.filter((t) => tags.has(t)).length }))
+    .filter((x) => x.n > 0)
+    .sort((a, b) => b.n - a.n);
+  for (const { e } of byOverlap) result.push(e);
+  return result.slice(0, limit);
+}
+
 export function toMeta(entry: Entry): EntryMeta {
   const { body: _body, ...meta } = entry;
   void _body;
