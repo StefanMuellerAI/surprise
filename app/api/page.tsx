@@ -23,6 +23,11 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
   },
   {
     method: "GET",
+    path: "/llms.txt",
+    desc: "Plain-text index of all entries (llms.txt convention) for agent discovery.",
+  },
+  {
+    method: "GET",
     path: "/api/search?q=...",
     desc: "Token-AND substring search across title, summary, tags, body.",
   },
