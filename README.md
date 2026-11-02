@@ -51,6 +51,8 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 | GET    | `/api/search?q=...`        | token-AND substring search                   |
 | GET    | `/api/tags`                | tags with counts                             |
 
+Agent-friendly plain text: `/llms.txt` (index) and `/llms-full.txt` (entire corpus as one markdown document).
+
 All responses send `Access-Control-Allow-Origin: *`.
 
 ## License
