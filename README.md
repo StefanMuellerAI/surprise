@@ -13,6 +13,10 @@ loading before tackling a task. The corpus grows one entry at a time.
 - Markdown content in `content/entries/`, parsed with [`gray-matter`](https://github.com/jonschlinkert/gray-matter) and rendered with [`remark`](https://github.com/remarkjs/remark) + `remark-gfm`
 - Deploys to any Node host; suited to Vercel.
 
+## For agents
+
+`GET /llms.txt` lists all entries; `GET /llms-full.txt` returns the whole corpus as plain markdown in one request.
+
 ## Local development
 
 ```bash
