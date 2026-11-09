@@ -6,6 +6,7 @@ import {
   renderEntry,
 } from "@/lib/entries";
 import type { EntryKind } from "@/lib/types";
+import { CopyMarkdownButton } from "./copy-button";
 
 const KIND_CLASS: Record<EntryKind, string> = {
   caveat: "kind-tag kind-caveat",
@@ -50,6 +51,9 @@ export default async function EntryPage({
         <div className="mb-3 flex items-baseline gap-3">
           <span className={KIND_CLASS[entry.kind]}>{entry.kind}</span>
           <span className="font-mono text-xs text-ink-muted">{entry.slug}</span>
+          <CopyMarkdownButton
+            text={`# ${entry.title}\n\n${entry.summary ? `> ${entry.summary}\n\n` : ""}${entry.body}\n`}
+          />
         </div>
         <h1 className="text-3xl font-semibold tracking-tight">{entry.title}</h1>
         {entry.summary && (
