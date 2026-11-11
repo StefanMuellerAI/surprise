@@ -50,6 +50,8 @@ Edit the generated file in `content/entries/`. Frontmatter fields:
 | GET    | `/api/entries/{slug}`      | single entry, with rendered HTML             |
 | GET    | `/api/search?q=...`        | token-AND substring search                   |
 | GET    | `/api/tags`                | tags with counts                             |
+| GET    | `/llms.txt`                | Markdown index of all entries ([llms.txt](https://llmstxt.org)) |
+| GET    | `/llms-full.txt`           | the whole corpus as one Markdown file        |
 
 All responses send `Access-Control-Allow-Origin: *`.
 
