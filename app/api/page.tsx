@@ -31,6 +31,11 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
     path: "/api/tags",
     desc: "List all tags with usage counts.",
   },
+  {
+    method: "GET",
+    path: "/api/openapi.json",
+    desc: "OpenAPI 3.1 description of this API, for generating clients and agent tools.",
+  },
 ];
 
 export default function ApiPage() {
@@ -40,7 +45,9 @@ export default function ApiPage() {
       <p className="mt-3 max-w-prose text-ink-soft">
         Everything on this site is also available as JSON. CORS is open
         (<code>Access-Control-Allow-Origin: *</code>) so fetch from anywhere.
-        Responses are cacheable; entries change at most once per day.
+        Responses are cacheable; entries change at most once per day. A
+        machine-readable description lives at{" "}
+        <a href="/api/openapi.json">/api/openapi.json</a>.
       </p>
 
       <div className="mt-8 overflow-hidden rounded-md border border-paper-rule bg-paper-card">
