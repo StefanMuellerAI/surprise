@@ -10,7 +10,7 @@ const KNOWN_KINDS: readonly EntryKind[] = [
   "note",
 ];
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
