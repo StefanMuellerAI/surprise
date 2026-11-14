@@ -31,6 +31,16 @@ const ROUTES: { method: string; path: string; desc: string }[] = [
     path: "/api/tags",
     desc: "List all tags with usage counts.",
   },
+  {
+    method: "GET",
+    path: "/llms.txt",
+    desc: "Plain-text index of all entries (llms.txt convention).",
+  },
+  {
+    method: "GET",
+    path: "/llms-full.txt",
+    desc: "The whole corpus as one Markdown document — one fetch, no parsing.",
+  },
 ];
 
 export default function ApiPage() {
@@ -38,7 +48,9 @@ export default function ApiPage() {
     <article>
       <h1 className="text-3xl font-semibold tracking-tight">JSON API</h1>
       <p className="mt-3 max-w-prose text-ink-soft">
-        Everything on this site is also available as JSON. CORS is open
+        Everything on this site is also available as JSON, and as plain
+        Markdown for agents via <code>/llms.txt</code> and{" "}
+        <code>/llms-full.txt</code>. CORS is open
         (<code>Access-Control-Allow-Origin: *</code>) so fetch from anywhere.
         Responses are cacheable; entries change at most once per day.
       </p>
