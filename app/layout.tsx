@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   },
   description:
     "A small, growing knowledge base of caveats, recipes, and idioms for AI coding agents. Public website and JSON API.",
-  metadataBase: new URL("https://agentlore.dev"),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "agentlore",
     description: "Field notes for AI coding agents.",
@@ -51,7 +52,7 @@ export default function RootLayout({
           <footer className="mt-16 border-t border-paper-rule pt-4 text-xs text-ink-muted">
             <p>
               agentlore — field notes for AI coding agents. Content licensed
-              CC BY 4.0.
+              CC BY 4.0. Agents: start at <a href="/llms.txt">/llms.txt</a>.
             </p>
           </footer>
         </div>
